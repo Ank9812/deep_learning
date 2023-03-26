@@ -77,17 +77,11 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ### What is a (Neural Network) NN?
 
-- Single neuron == linear regression
-- Simple NN graph:
-  - ![](https://raw.githubusercontent.com/ashishpatel26/DeepLearning.ai-Summary/master/1-%20Neural%20Networks%20and%20Deep%20Learning/Images//Others/01.jpg)
-  - Image taken from [tutorialspoint.com](tutorialspoint.com)
-- RELU stands for rectified linear unit is the most popular activation function right now that makes deep NNs train faster now.
+- A neural network is a type of machine learning model inspired by the structure and function of the human brain. It consists of interconnected nodes, called neurons, that work together to process and analyze data.
+
+- Each neuron receives input from one or more other neurons, applies a mathematical function to the inputs, and generates an output signal that is passed on to other neurons in the network. The strength of the connections between the neurons, called weights, is adjusted during the learning process to optimize the network's performance on a given task.
+
 - Hidden layers predicts connection between inputs automatically, thats what deep learning is good at.
-- Deep NN consists of more hidden layers (Deeper layers)
-  - ![](https://raw.githubusercontent.com/ashishpatel26/DeepLearning.ai-Summary/master/1-%20Neural%20Networks%20and%20Deep%20Learning/Images//Others/02.png)
-  - Image taken from [opennn.net](opennn.net)
-- Each Input will be connected to the hidden layer and the NN will decide the connections.
-- Supervised learning means we have the (X,Y) and we need to get the function that maps X to Y.
 
 ### Supervised learning with neural networks
 
@@ -97,59 +91,24 @@ Here are the course summary as its given on the course [link](https://www.course
   - Standard NN (Useful for Structured data)
   - Hybrid/custom NN or a Collection of NNs types
 - Structured data is like the databases and tables.
-- Unstructured data is like https://raw.githubusercontent.com/ashishpatel26/DeepLearning.ai-Summary/master/1-%20Neural%20Networks%20and%20Deep%20Learning/Images/, video, audio, and text.
+- Unstructured data is like video, audio, and text.
 - Structured data gives more money because companies relies on prediction on its big data.
 
-### Why is deep learning taking off?
 
-- Deep learning is taking off for 3 reasons:
-  1. Data:
-     - Using this image we can conclude:
-       - ![](https://raw.githubusercontent.com/ashishpatel26/DeepLearning.ai-Summary/master/1-%20Neural%20Networks%20and%20Deep%20Learning/Images//11.png)
-     - For small data NN can perform as Linear regression or SVM (Support vector machine)
-     - For big data a small NN is better that SVM
-     - For big data a big NN is better that a medium NN is better that small NN.
-     - Hopefully we have a lot of data because the world is using the computer a little bit more
-       - Mobiles
-       - IOT (Internet of things)
-  2. Computation:
-     - GPUs.
-     - Powerful CPUs.
-     - Distributed computing.
-     - ASICs
-  3. Algorithm:
-     1. Creative algorithms has appeared that changed the way NN works.
-        - For example using RELU function is so much better than using SIGMOID function in training a NN because it helps with the vanishing gradient problem.
-
-  
 
 ## Neural Networks Basics
 
-> Learn to set up a machine learning problem with a neural network mindset. Learn to use vectorization to speed up your models.
-
+> 
 ### Binary classification
 
-- Mainly he is talking about how to do a logistic regression to make a binary classifier.
-  - ![log](https://raw.githubusercontent.com/ashishpatel26/DeepLearning.ai-Summary/master/1-%20Neural%20Networks%20and%20Deep%20Learning/Images//Others/03.png)
-  - Image taken from [3.bp.blogspot.com](http://3.bp.blogspot.com)
-- He talked about an example of knowing if the current image contains a cat or not.
-- Here are some notations:
-  - `M is the number of training vectors`
-  - `Nx is the size of the input vector`
-  - `Ny is the size of the output vector`
-  - `X(1) is the first input vector`
-  - `Y(1) is the first output vector`
-  - `X = [x(1) x(2).. x(M)]`
-  - `Y = (y(1) y(2).. y(M))`
-- We will use python in this course.
-- In NumPy we can make matrices and make operations on them in a fast and reliable time.
+- Binary classification is a type of supervised machine learning task in which the goal is to classify input data into one of two possible categories or classes.
 
 ### Logistic regression
 
 - Algorithm is used for classification algorithm of 2 classes.
 - Equations:
   - Simple equation:	`y = wx + b`
-  - If x is a vector: `y = w(transpose)x + b`
+  - If x is a vector: `y = w^T x + b`
   - If we need y to be in between 0 and 1 (probability): `y = sigmoid(w(transpose)x + b)`
   - In some notations this might be used: `y = sigmoid(w(transpose)x)` 
     - While `b` is `w0` of `w` and we add `x0 = 1`. but we won't use this notation in the course (Andrew said that the first notation is better).
@@ -169,6 +128,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ### Gradient Descent
 
+- Gradient descent is an optimization algorithm used in machine learning to minimize the cost or loss function of a model by adjusting its parameters. The algorithm works by iteratively computing the gradients of the cost function with respect to each parameter, and then updating the parameters in the opposite direction of the gradient.
 - We want to predict `w` and `b` that minimize the cost function.
 - Our cost function is convex.
 - First we initialize `w` and `b` to 0,0 or initialize them to a random value in the convex function and then try to improve the values the reach minimum value.
@@ -183,23 +143,9 @@ Here are the course summary as its given on the course [link](https://www.course
   - `w = w - alpha * d(J(w,b) / dw)`        (how much the function slopes in the w direction)
   - `b = b - alpha * d(J(w,b) / db)`        (how much the function slopes in the d direction)
 
-### Derivatives
 
-- We will talk about some of required calculus.
-- You don't need to be a calculus geek to master deep learning but you'll need some skills from it.
-- Derivative of a linear line is its slope.
-  - ex. `f(a) = 3a`                    `d(f(a))/d(a) = 3`
-  - if `a = 2` then `f(a) = 6`
-  - if we move a a little bit `a = 2.001` then `f(a) = 6.003` means that we multiplied the derivative (Slope) to the moved area and added it to the last result.
 
-### More Derivatives examples
 
-- `f(a) = a^2`  ==> `d(f(a))/d(a) = 2a`
-  - `a = 2`  ==> `f(a) = 4`
-  - `a = 2.0001` ==> `f(a) = 4.0004` approx.
-- `f(a) = a^3`  ==> `d(f(a))/d(a) = 3a^2`
-- `f(a) = log(a)`  ==> `d(f(a))/d(a) = 1/a`
-- To conclude, Derivative is the slope and slope is different in different points in the function thats why the derivative is a function.
 
 ### Computation graph
 
@@ -213,8 +159,33 @@ Here are the course summary as its given on the course [link](https://www.course
   Then `d(z)/d(x) = d(z)/d(y) * d(y)/d(x)`
 - The video illustrates a big example.
   - ![](https://raw.githubusercontent.com/ashishpatel26/DeepLearning.ai-Summary/master/1-%20Neural%20Networks%20and%20Deep%20Learning/Images//03.png)
-- We compute the derivatives on a graph from right to left and it will be a lot more easier.
+
 - `dvar` means the derivatives of a final output variable with respect to various intermediate quantities.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Logistic Regression Gradient Descent
 
@@ -281,13 +252,56 @@ Here are the course summary as its given on the course [link](https://www.course
 
 - Vectorization is so important on deep learning to reduce loops. In the last code we can make the whole loop in one step using vectorization!
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 ### Vectorization
 
 - Deep learning shines when the dataset are big. However for loops will make you wait a lot for a result. Thats why we need vectorization to get rid of some of our for loops.
 - NumPy library (dot) function is using vectorization by default.
-- The vectorization can be done on CPU or GPU thought the SIMD operation. But its faster on GPU.
-- Whenever possible avoid for loops.
-- Most of the NumPy library methods are vectorized version.
+
 
 ### Vectorizing Logistic Regression
 
